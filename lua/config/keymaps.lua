@@ -20,6 +20,15 @@ keymaps.set("n", "<C-k>", "<C-w>k")
 keymaps.set("n", "<C-j>", "<C-w>j")
 keymaps.set("n", "<C-l>", "<C-w>l")
 
+-- Close current window or quit if last
+keymaps.set("n", "<leader>wd", ":q<CR>", opts)
+keymaps.set("n", "<leader>ws", ":only<CR>", opts)
+
+
+-- Move between tabs
+keymaps.set("n", "<S-h>", ":tabprevious<CR>", opts)
+keymaps.set("n", "<S-l>", ":tabnext<CR>", opts)
+
 -- Move lines up/down
 keymaps.set("n", "<A-j>", ":m .+1<CR>==", opts)
 keymaps.set("n", "<A-k>", ":m .-2<CR>==", opts)
@@ -39,13 +48,13 @@ keymaps.set("n", "<S-h>", ":bprevious<CR>", opts)
 keymaps.set("n", "<S-l>", ":bnext<CR>", opts)
 keymaps.set("n", "[b", ":bprevious<CR>", opts)
 keymaps.set("n", "]b", ":bnext<CR>", opts)
-
 -- Switch to other buffer
-keymaps.set("n", "<leader>bb", "<cmd>BufferLineCyclePrev<CR>", opts)
-keymaps.set("n", "<leader>`", "<cmd>BufferLineCyclePrev<CR>", opts)
+
+-- keymaps.set("n", "<leader>bb", "<cmd>BufferLineCyclePrev<CR>", opts)
+-- keymaps.set("n", "<leader>`", "<cmd>BufferLineCyclePrev<CR>", opts)
 
 -- Delete buffer (close current tab)
-keymaps.set("n", "<leader>bd", "<cmd>bdelete<CR>", opts)
+keymaps.set("n", "<leader>bd", "<cmd>b#|bd #<CR>", opts)
 
 -- Delete other buffers
 keymaps.set("n", "<leader>bo", "<cmd>BufferLineCloseOthers<CR>", opts)
@@ -55,10 +64,10 @@ keymaps.set("n", "<leader>bD", "<cmd>BufferLinePickClose<CR>", opts)
 -- Escape and clear search highlight
 keymaps.set({ "i", "n", "s" }, "<Esc>", "<Esc>:noh<CR>", opts)
 
--- Diagnostics
-keymaps.set("n", "<C-j>", function()
-  vim.diagnostic.goto_next()
-end)
+-- -- Diagnostics
+-- keymaps.set("n", "<C-j>", function()
+--     vim.diagnostic.goto_next()
+-- end)
 
 -- move selected lines
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
