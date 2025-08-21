@@ -24,7 +24,6 @@ keymaps.set("n", "<C-l>", "<C-w>l")
 keymaps.set("n", "<leader>wd", ":q<CR>", opts)
 keymaps.set("n", "<leader>ws", ":only<CR>", opts)
 
-
 -- Move between tabs
 keymaps.set("n", "<S-h>", ":tabprevious<CR>", opts)
 keymaps.set("n", "<S-l>", ":tabnext<CR>", opts)

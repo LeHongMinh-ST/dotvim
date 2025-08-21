@@ -18,7 +18,14 @@ vim.cmd("set expandtab")
 vim.cmd("set tabstop=4")
 vim.cmd("set softtabstop=4")
 vim.cmd("set shiftwidth=4")
-vim.g.mapleader = " "
 vim.cmd("set number")
 vim.cmd("set relativenumber")
 vim.cmd("set cursorline")
+
+-- 2. Neovim fold settings
+vim.o.foldmethod = "expr" -- dùng expr fold
+vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- fold theo Treesitter
+vim.o.foldenable = true -- bật fold tự động
+vim.o.foldlevel = 99 -- mở gần hết code khi mở file
+vim.o.foldlevelstart = 99
+vim.o.foldminlines = 1 -- fold tối thiểu 1 dòng
